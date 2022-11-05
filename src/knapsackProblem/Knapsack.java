@@ -4,6 +4,7 @@ public class Knapsack {
 	
 	String[] packed;
 	double capacity;
+	int totalValue;
 	
 	public Knapsack(double capacity) {
 		this.capacity = capacity;
@@ -29,6 +30,7 @@ public class Knapsack {
 	public boolean weightCheck(Item item) {
 		if (item.weight <= this.capacity) {
 			this.capacity -= item.weight;
+			this.totalValue += item.value;
 			return true;
 		} else {
 			return false;

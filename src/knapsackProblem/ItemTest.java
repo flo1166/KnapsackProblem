@@ -31,5 +31,6 @@ public class ItemTest {
 		for(i = 0; i < knapsack.packed.length; i++) {
 			System.out.println("Packed item " + (i + 1) + ": " + knapsack.packed[i]);
 			}
+		System.out.println("Total Value: " + knapsack.totalValue);
 		}
 }
