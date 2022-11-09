@@ -6,12 +6,24 @@ public class Knapsack {
 	double capacity;
 	int totalValue;
 	
+	// Constructor
 	public Knapsack(double capacity) {
 		this.capacity = capacity;
 		this.packed = new String[0];
 	}
 	
-	public void pack(String name) {
+	// method to try to pack
+	public boolean tryPack(Item item) {
+		if (weightCheck(item)) {
+			pack(item.getName());
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	// method to pack an item
+	private void pack(String name) {
 		int i;
 		
 		int lenPacked = packed.length + 1;
@@ -27,10 +39,11 @@ public class Knapsack {
 		this.packed = newPacked;	
 	}
 	
-	public boolean weightCheck(Item item) {
-		if (item.weight <= this.capacity) {
-			this.capacity -= item.weight;
-			this.totalValue += item.value;
+	// method to check if weight can be packed
+	private boolean weightCheck(Item item) {
+		if (item.getWeight() <= this.capacity) {
+			this.capacity -= item.getWeight();
+			this.totalValue += item.getValue();
 			return true;
 		} else {
 			return false;

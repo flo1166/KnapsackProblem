@@ -1,6 +1,7 @@
 package knapsackProblem;
 
 public class ItemTest {
+	// control structure for knapsack problem
 	public static void main(String[] args) {
 		// input data
 		double capacity = 16;
@@ -22,9 +23,7 @@ public class ItemTest {
 		
 		// check if weight can be packed
 		for(i = 0; i < item.length; i++) {
-			if(knapsack.weightCheck(item[i])) {
-				knapsack.pack(item[i].name);
-				}
+			knapsack.tryPack(item[i]);
 			}
 		
 		// Output
